@@ -21,7 +21,7 @@
         <td><%= my_gift_card.place.place_name %></td>
         <td><%= my_gift_card.expiration_date %></td>
         <td><%= my_gift_card.card_image %></td>
-        <td><%= my_gift_card.user_id %></td>
+        <td><%= my_gift_card.user.email %></td>
         <td>
           <a href="/my_gift_cards/<%= my_gift_card.id %>" class="btn btn-primary">Show</a>
           <a href="/my_gift_cards/<%= my_gift_card.id %>/edit" class="btn btn-warning">Edit</a>
