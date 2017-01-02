@@ -1,4 +1,14 @@
 class MyGiftCardsController < ApplicationController
+  before_action :current_user_must_be_my_gift_card_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_my_gift_card_user
+    my_gift_card = MyGiftCard.find(params[:id])
+
+    unless current_user == my_gift_card.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @my_gift_cards = MyGiftCard.all
 
