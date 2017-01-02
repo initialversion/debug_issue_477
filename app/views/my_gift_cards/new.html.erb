@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/create_my_gift_card" method="post">
+    <form action="/create_my_gift_card" method="post" enctype="multipart/form-data">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -42,7 +42,7 @@
           Card image
         </label>
 
-        <input type="text" id="card_image" name="card_image" placeholder="Card image" class="form-control" value="<%= @my_gift_card.card_image %>">
+        <input type="file" id="card_image" name="card_image" class="form-control">
       </div>
 
       <!-- Label and input for user_id -->
