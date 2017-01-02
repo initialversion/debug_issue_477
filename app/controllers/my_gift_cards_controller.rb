@@ -1,5 +1,5 @@
 class MyGiftCardsController < ApplicationController
-  before_action :current_user_must_be_my_gift_card_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_my_gift_card_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_my_gift_card_user
     my_gift_card = MyGiftCard.find(params[:id])
