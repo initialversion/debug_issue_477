@@ -10,7 +10,7 @@ class MyGiftCardsController < ApplicationController
   end
 
   def index
-    @my_gift_cards = MyGiftCard.all
+    @my_gift_cards = current_user.my_gift_cards.page(params[:page]).per(10)
 
     render("my_gift_cards/index.html.erb")
   end
