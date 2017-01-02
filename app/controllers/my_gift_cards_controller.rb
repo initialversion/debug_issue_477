@@ -10,7 +10,8 @@ class MyGiftCardsController < ApplicationController
   end
 
   def index
-    @my_gift_cards = current_user.my_gift_cards.page(params[:page]).per(10)
+    @q = current_user.my_gift_cards.ransack(params[:q])
+      @my_gift_cards = @q.result(:distinct => true).includes(:user, :place).page(params[:page]).per(10)
 
     render("my_gift_cards/index.html.erb")
   end
